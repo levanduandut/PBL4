@@ -81,7 +81,7 @@ namespace PBL4 {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(13, 38);
+			this->label2->Location = System::Drawing::Point(12, 38);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(33, 13);
 			this->label2->TabIndex = 1;

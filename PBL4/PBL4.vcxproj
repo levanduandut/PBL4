@@ -120,23 +120,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MyDns.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyPing.cpp" />
+    <ClCompile Include="MyScan.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyDns.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyPing.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyScan.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MyDns.resx">
+      <DependentUpon>MyDns.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyPing.resx">
       <DependentUpon>MyPing.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyScan.resx">
+      <DependentUpon>MyScan.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

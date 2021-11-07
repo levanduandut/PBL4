@@ -21,12 +21,24 @@
     <ClCompile Include="MyPing.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyDns.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyScan.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MyPing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyDns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyScan.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
