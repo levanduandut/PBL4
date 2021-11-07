@@ -46,6 +46,8 @@ namespace PBL4 {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ labelTitle;
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Panel^ panelDesktop;
 	protected:
 
 	private:
@@ -61,6 +63,7 @@ namespace PBL4 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
 			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->btnMyScanIp = (gcnew System::Windows::Forms::Button());
@@ -71,8 +74,12 @@ namespace PBL4 {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->labelTitle = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panelDesktop = (gcnew System::Windows::Forms::Panel());
 			this->panelMenu->SuspendLayout();
+			this->panelLogo->SuspendLayout();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panelMenu
@@ -105,50 +112,63 @@ namespace PBL4 {
 			// 
 			// btnMyScanIp
 			// 
+			this->btnMyScanIp->BackColor = System::Drawing::Color::LightSeaGreen;
 			this->btnMyScanIp->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnMyScanIp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnMyScanIp->Location = System::Drawing::Point(0, 306);
 			this->btnMyScanIp->Name = L"btnMyScanIp";
 			this->btnMyScanIp->Size = System::Drawing::Size(220, 62);
 			this->btnMyScanIp->TabIndex = 4;
 			this->btnMyScanIp->Text = L"My Scan IP";
-			this->btnMyScanIp->UseVisualStyleBackColor = true;
+			this->btnMyScanIp->UseVisualStyleBackColor = false;
 			this->btnMyScanIp->Click += gcnew System::EventHandler(this, &MyForm::btnMyScanIp_Click);
 			// 
 			// btnDnsQuery
 			// 
+			this->btnDnsQuery->BackColor = System::Drawing::Color::LightSeaGreen;
 			this->btnDnsQuery->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnDnsQuery->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnDnsQuery->Location = System::Drawing::Point(0, 244);
 			this->btnDnsQuery->Name = L"btnDnsQuery";
 			this->btnDnsQuery->Size = System::Drawing::Size(220, 62);
 			this->btnDnsQuery->TabIndex = 3;
 			this->btnDnsQuery->Text = L"My DNS Query";
-			this->btnDnsQuery->UseVisualStyleBackColor = true;
+			this->btnDnsQuery->UseVisualStyleBackColor = false;
 			this->btnDnsQuery->Click += gcnew System::EventHandler(this, &MyForm::btnDnsQuery_Click);
 			// 
 			// btnMyTracert
 			// 
+			this->btnMyTracert->BackColor = System::Drawing::Color::LightSeaGreen;
 			this->btnMyTracert->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnMyTracert->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnMyTracert->Location = System::Drawing::Point(0, 182);
 			this->btnMyTracert->Name = L"btnMyTracert";
 			this->btnMyTracert->Size = System::Drawing::Size(220, 62);
 			this->btnMyTracert->TabIndex = 2;
 			this->btnMyTracert->Text = L"My Tracert";
-			this->btnMyTracert->UseVisualStyleBackColor = true;
+			this->btnMyTracert->UseVisualStyleBackColor = false;
 			this->btnMyTracert->Click += gcnew System::EventHandler(this, &MyForm::btnMyTracert_Click);
 			// 
 			// btnMyPing
 			// 
+			this->btnMyPing->BackColor = System::Drawing::Color::LightSeaGreen;
 			this->btnMyPing->Dock = System::Windows::Forms::DockStyle::Top;
+			this->btnMyPing->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnMyPing->Location = System::Drawing::Point(0, 120);
 			this->btnMyPing->Name = L"btnMyPing";
 			this->btnMyPing->Size = System::Drawing::Size(220, 62);
 			this->btnMyPing->TabIndex = 1;
 			this->btnMyPing->Text = L"My Ping";
-			this->btnMyPing->UseVisualStyleBackColor = true;
+			this->btnMyPing->UseVisualStyleBackColor = false;
 			this->btnMyPing->Click += gcnew System::EventHandler(this, &MyForm::btnMyPing_Click);
 			// 
 			// panelLogo
 			// 
+			this->panelLogo->Controls->Add(this->pictureBox1);
 			this->panelLogo->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panelLogo->Location = System::Drawing::Point(0, 0);
 			this->panelLogo->Name = L"panelLogo";
@@ -187,44 +207,81 @@ namespace PBL4 {
 			this->panel2->Size = System::Drawing::Size(853, 5);
 			this->panel2->TabIndex = 2;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(40, 17);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(145, 63);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			// 
+			// panelDesktop
+			// 
+			this->panelDesktop->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->panelDesktop->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panelDesktop->Location = System::Drawing::Point(220, 80);
+			this->panelDesktop->Name = L"panelDesktop";
+			this->panelDesktop->Size = System::Drawing::Size(853, 461);
+			this->panelDesktop->TabIndex = 3;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1073, 541);
+			this->Controls->Add(this->panelDesktop);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->panelMenu);
+			this->ForeColor = System::Drawing::Color::Red;
 			this->Name = L"MyForm";
 			this->Text = L"My Basic Network Tools";
 			this->panelMenu->ResumeLayout(false);
+			this->panelLogo->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void btnMyPing_Click(System::Object^ sender, System::EventArgs^ e) {
 		labelTitle->Text = btnMyPing->Text;
+		btnMyPing->BackColor = Color::Aqua;
+		btnMyTracert->BackColor = Color::LightSeaGreen;
+		btnDnsQuery->BackColor = Color::LightSeaGreen;
+		btnMyScanIp->BackColor = Color::LightSeaGreen;
+
 	}
-     private: System::Void btnMyTracert_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void btnMyTracert_Click(System::Object^ sender, System::EventArgs^ e) {
 	    labelTitle->Text = btnMyTracert->Text;
+		btnMyTracert->BackColor = Color::Aqua;
+		btnDnsQuery->BackColor = Color::LightSeaGreen;
+		btnMyScanIp->BackColor = Color::LightSeaGreen;
+		btnMyPing->BackColor = Color::LightSeaGreen;
     }
     private: System::Void btnDnsQuery_Click(System::Object^ sender, System::EventArgs^ e) {
 		labelTitle->Text = btnDnsQuery->Text;
+		btnDnsQuery->BackColor = Color::Aqua;
+		btnMyScanIp->BackColor = Color::LightSeaGreen;
+		btnMyPing->BackColor = Color::LightSeaGreen;
+		btnMyTracert->BackColor = Color::LightSeaGreen;
+
     }
     private: System::Void btnMyScanIp_Click(System::Object^ sender, System::EventArgs^ e) {
 		labelTitle->Text = btnMyScanIp->Text;
+		btnMyScanIp->BackColor = Color::Aqua;
+		btnMyPing->BackColor = Color::LightSeaGreen;
+		btnMyTracert->BackColor = Color::LightSeaGreen;
+		btnDnsQuery->BackColor = Color::LightSeaGreen;
     }
     private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show("DO you really want to exit ?", "My Basic Network Tools",
 			MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			Application::Exit();
 		}
-		{
-
-		}
-
     }
 };
 }
