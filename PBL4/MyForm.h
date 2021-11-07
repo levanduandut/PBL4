@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "MyPing.h"
 
 namespace PBL4 {
 
@@ -48,6 +49,10 @@ namespace PBL4 {
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Panel^ panelDesktop;
+
+
+	private: Form^ currentChildForm;
+
 	protected:
 
 	private:
@@ -71,15 +76,15 @@ namespace PBL4 {
 			this->btnMyTracert = (gcnew System::Windows::Forms::Button());
 			this->btnMyPing = (gcnew System::Windows::Forms::Button());
 			this->panelLogo = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->labelTitle = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelDesktop = (gcnew System::Windows::Forms::Panel());
 			this->panelMenu->SuspendLayout();
 			this->panelLogo->SuspendLayout();
-			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelMenu
@@ -175,6 +180,16 @@ namespace PBL4 {
 			this->panelLogo->Size = System::Drawing::Size(220, 120);
 			this->panelLogo->TabIndex = 0;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(40, 17);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(145, 63);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
@@ -207,19 +222,10 @@ namespace PBL4 {
 			this->panel2->Size = System::Drawing::Size(853, 5);
 			this->panel2->TabIndex = 2;
 			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(40, 17);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(145, 63);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
-			// 
 			// panelDesktop
 			// 
-			this->panelDesktop->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->panelDesktop->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->panelDesktop->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelDesktop->Location = System::Drawing::Point(220, 80);
 			this->panelDesktop->Name = L"panelDesktop";
@@ -240,9 +246,9 @@ namespace PBL4 {
 			this->Text = L"My Basic Network Tools";
 			this->panelMenu->ResumeLayout(false);
 			this->panelLogo->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -253,6 +259,9 @@ namespace PBL4 {
 		btnMyTracert->BackColor = Color::LightSeaGreen;
 		btnDnsQuery->BackColor = Color::LightSeaGreen;
 		btnMyScanIp->BackColor = Color::LightSeaGreen;
+
+		
+		
 
 	}
     private: System::Void btnMyTracert_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -283,5 +292,24 @@ namespace PBL4 {
 			Application::Exit();
 		}
     }
+	private: 
+		void OpenChildForm(Form^ childForm) {
+			if (!currentChildForm)
+			{
+				currentChildForm->Close();
+
+			}
+			currentChildForm = childForm;
+			childForm->TopLevel = false;
+			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			childForm->Dock = System::Windows::Forms::DockStyle::Fill;
+			panelDesktop->Controls->Add(childForm);
+			panelDesktop->Tag = childForm;
+			childForm->BringToFront();
+			childForm->Show();
+			labelTitle->Text = childForm->Text;
+
+	}
+
 };
 }
