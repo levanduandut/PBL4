@@ -259,8 +259,8 @@ namespace PBL4 {
 		btnMyTracert->BackColor = Color::LightSeaGreen;
 		btnDnsQuery->BackColor = Color::LightSeaGreen;
 		btnMyScanIp->BackColor = Color::LightSeaGreen;
-
-		
+		MyPing^ frm2 = gcnew MyPing;
+		frm2->Show();
 		
 
 	}
