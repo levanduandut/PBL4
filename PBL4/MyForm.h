@@ -312,10 +312,6 @@ namespace PBL4 {
     }
 	private: 
 		void OpenChildForm(Form^ childForm) {
-			
-			if (currentChildForm) {
-				currentChildForm->Close();
-			}
 			currentChildForm = childForm;
 			childForm->TopLevel = false;
 			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
