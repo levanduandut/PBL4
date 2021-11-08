@@ -2,6 +2,7 @@
 #include "MyPing.h"
 #include "MyDns.h"
 #include "MyScan.h"
+#include "MyTracert.h"
 
 namespace PBL4 {
 
@@ -273,6 +274,9 @@ namespace PBL4 {
 		btnDnsQuery->BackColor = Color::LightSeaGreen;
 		btnMyScanIp->BackColor = Color::LightSeaGreen;
 		btnMyPing->BackColor = Color::LightSeaGreen;
+
+		MyTracert^ frm4 = gcnew MyTracert;
+		OpenChildForm(frm4);
 
 
     }

@@ -124,6 +124,7 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyPing.cpp" />
     <ClCompile Include="MyScan.cpp" />
+    <ClCompile Include="MyTracert.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyDns.h">
@@ -136,6 +137,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyScan.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyTracert.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -151,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyScan.resx">
       <DependentUpon>MyScan.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyTracert.resx">
+      <DependentUpon>MyTracert.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

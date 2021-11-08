@@ -27,6 +27,9 @@
     <ClCompile Include="MyScan.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyTracert.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MyScan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyTracert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
