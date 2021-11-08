@@ -301,6 +301,7 @@ namespace PBL4 {
 
 		MyScan^ frm3 = gcnew MyScan;
 		OpenChildForm(frm3);
+		
 
     }
     private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -312,6 +313,10 @@ namespace PBL4 {
 	private: 
 		void OpenChildForm(Form^ childForm) {
 			
+			if (currentChildForm) {
+				currentChildForm->Close();
+			}
+			currentChildForm = childForm;
 			childForm->TopLevel = false;
 			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			childForm->Dock = System::Windows::Forms::DockStyle::Fill;
