@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "MyPing.h"
+#include "MyDns.h"
+#include "MyScan.h"
 
 namespace PBL4 {
 
@@ -259,8 +261,9 @@ namespace PBL4 {
 		btnMyTracert->BackColor = Color::LightSeaGreen;
 		btnDnsQuery->BackColor = Color::LightSeaGreen;
 		btnMyScanIp->BackColor = Color::LightSeaGreen;
-		MyPing^ frm2 = gcnew MyPing;
-		frm2->Show();
+
+		MyPing^ frm1 = gcnew MyPing;
+		OpenChildForm(frm1);
 		
 
 	}
@@ -270,6 +273,8 @@ namespace PBL4 {
 		btnDnsQuery->BackColor = Color::LightSeaGreen;
 		btnMyScanIp->BackColor = Color::LightSeaGreen;
 		btnMyPing->BackColor = Color::LightSeaGreen;
+
+
     }
     private: System::Void btnDnsQuery_Click(System::Object^ sender, System::EventArgs^ e) {
 		labelTitle->Text = btnDnsQuery->Text;
@@ -278,6 +283,9 @@ namespace PBL4 {
 		btnMyPing->BackColor = Color::LightSeaGreen;
 		btnMyTracert->BackColor = Color::LightSeaGreen;
 
+		MyDns^ frm2 = gcnew MyDns;
+		OpenChildForm(frm2);
+
     }
     private: System::Void btnMyScanIp_Click(System::Object^ sender, System::EventArgs^ e) {
 		labelTitle->Text = btnMyScanIp->Text;
@@ -285,6 +293,11 @@ namespace PBL4 {
 		btnMyPing->BackColor = Color::LightSeaGreen;
 		btnMyTracert->BackColor = Color::LightSeaGreen;
 		btnDnsQuery->BackColor = Color::LightSeaGreen;
+
+
+		MyScan^ frm3 = gcnew MyScan;
+		OpenChildForm(frm3);
+
     }
     private: System::Void btnExit_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (MessageBox::Show("DO you really want to exit ?", "My Basic Network Tools",
@@ -294,12 +307,7 @@ namespace PBL4 {
     }
 	private: 
 		void OpenChildForm(Form^ childForm) {
-			if (!currentChildForm)
-			{
-				currentChildForm->Close();
-
-			}
-			currentChildForm = childForm;
+			
 			childForm->TopLevel = false;
 			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			childForm->Dock = System::Windows::Forms::DockStyle::Fill;
